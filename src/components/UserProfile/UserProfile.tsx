@@ -33,7 +33,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ user }) => (
 			src={user.profilePicture}
 			alt="User Profile"
 		/>
-		<div className="p-4 bg-white rounded-2xl w-full">
+		<div className="hidden md:flex p-4 bg-white rounded-2xl w-full">
 			{user.contacts.map((contact, index) => (
 				<div className="flex items-center gap-2" key={index}>
 					{/* Add an icon for contact type here */}
@@ -41,19 +41,19 @@ const UserProfile: React.FC<UserProfileProps> = ({ user }) => (
 				</div>
 			))}
 		</div>
-		<div className="p-4 bg-white rounded-2xl w-full">
+		<div className="hidden md:flex p-4 bg-white rounded-2xl w-full">
 			<div className="text-sm font-medium">Hire Date</div>
 			<div className="text-sm font-medium">{user.hireDate}</div>
 			<div className="text-sm font-medium">{user.tenure}</div>
 		</div>
-		<div className="p-4 bg-white rounded-2xl w-full">
+		<div className="hidden md:flex p-4 bg-white rounded-2xl w-full">
 			<div className="flex gap-2">
 				<span className="text-sm font-medium">
 					{user.employmentDetails.position}
 				</span>
 			</div>
 		</div>
-		<div className="p-4 bg-white rounded-2xl w-full">
+		<div className="hidden md:flex p-4 bg-white rounded-2xl w-full">
 			<div className="text-sm font-medium">Direct Reports</div>
 			{user.directReports.map((report, index) => (
 				<div className="flex items-center gap-2" key={index}>
