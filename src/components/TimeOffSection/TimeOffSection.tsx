@@ -33,15 +33,15 @@ const TimeOffSection = () => {
 	];
 
 	return (
-		<section>
-			<div className="flex flex-row gap-2 pb-2 mb-4 border-b-2 border-black ">
+		<section className="px-4 py-2">
+			<div className="flex flex-row gap-2 pb-2 mb-4 border-b-2 border-black">
 				<GrDocumentTime className="self-center" />
 				<h2 className="text-xl font-semibold">Time Off</h2>
 			</div>
-			<div className="flex flex-row gap-8 mx-10">
+			<div className="flex flex-row gap-8 justify-around overflow-x-auto">
 				{timeOffData.map((policy, index) => (
 					<div
-						className="w-full py-3 bg-[#F0F3F8] rounded-lg shadow-sm flex flex-col gap-1 items-center "
+						className="w-[260px] min-w-[260px] py-3 bg-[#F0F3F8] rounded-lg shadow-sm flex flex-col gap-1 items-center"
 						key={index}
 					>
 						<div className="text-center text-2xl font-semibold">
