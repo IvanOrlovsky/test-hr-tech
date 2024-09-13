@@ -5,14 +5,28 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { IoMdNotificationsOutline } from "react-icons/io";
-
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { destroyCookie } from "nookies";
 import { cn } from "@/lib/cn";
+import useAuthStore from "@/store/authStore";
 
 const NavigationBar = () => {
 	const [activeLink, setActiveLink] = useState("");
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isSearchOpen, setIsSearchOpen] = useState(false);
+	const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false); // Состояние для меню профиля
+	const router = useRouter();
+	const setToken = useAuthStore((state) => state.setToken);
+
+	const handleLogout = () => {
+		// Удаляем токен из cookies
+		destroyCookie(null, "auth-token");
+		// Сбрасываем токен в Zustand
+		setToken(null);
+		// Редирект на страницу логина
+		router.push("/login");
+	};
 
 	return (
 		<nav className="bg-white px-8 flex flex-row items-center justify-between relative">
@@ -122,26 +136,6 @@ const NavigationBar = () => {
 						className="outline-none"
 					/>
 				</div>
-				<div className="hidden md:flex items-center">
-					<button>
-						<IoSettingsOutline size={24} />
-					</button>
-				</div>
-				<div className="hidden md:flex items-center">
-					<button>
-						<FaRegQuestionCircle size={24} />
-					</button>
-				</div>
-				<div className="hidden md:flex items-center">
-					<button>
-						<IoMdNotificationsOutline size={24} />
-					</button>
-				</div>
-				<img
-					className="w-10 h-10 rounded-full"
-					src="https://via.placeholder.com/38x38"
-					alt="Profile"
-				/>
 			</div>
 
 			{isMenuOpen && (
@@ -221,6 +215,47 @@ const NavigationBar = () => {
 					</div>
 				</div>
 			)}
+
+			<div className="flex items-center gap-4">
+				{/* Иконки поиска, настроек, уведомлений */}
+				<div className="hidden md:flex items-center">
+					<button>
+						<IoSettingsOutline size={24} />
+					</button>
+				</div>
+				<div className="hidden md:flex items-center">
+					<button>
+						<FaRegQuestionCircle size={24} />
+					</button>
+				</div>
+				<div className="hidden md:flex items-center">
+					<button>
+						<IoMdNotificationsOutline size={24} />
+					</button>
+				</div>
+
+				{/* Аватарка пользователя */}
+				<div className="relative">
+					<img
+						className="w-10 h-10 rounded-full cursor-pointer"
+						src="https://via.placeholder.com/38x38"
+						alt="Profile"
+						onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)} // Открытие/закрытие меню
+					/>
+
+					{/* Меню профиля */}
+					{isProfileMenuOpen && (
+						<div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+							<button
+								onClick={handleLogout}
+								className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+							>
+								Выйти
+							</button>
+						</div>
+					)}
+				</div>
+			</div>
 		</nav>
 	);
 };

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import UserProfile from "../components/UserProfile/UserProfile";
 import ProfileHeader from "../components/ProfileHeader/ProfileHeader";
