@@ -35,7 +35,7 @@ const history = [
 ];
 
 const Home: React.FC = () => (
-	<div className="bg-[#f0f3f8] min-h-screen">
+	<div className="bg-[#DAE6F2] min-h-screen">
 		<NavigationBar />
 		<main className="p-8">
 			<ProfileHeader title={user.name} />
