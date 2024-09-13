@@ -29,13 +29,25 @@ const user = {
 };
 
 const history = [
-	{ date: "23/05/2024", description: "Accrual for 23/05/2024 to 20/11/2024" },
-	{ date: "23/05/2024", description: "Accrual for 23/05/2024 to 20/11/2024" },
+	{
+		date: "23/05/2024",
+		description: "Accrual for 23/05/2024 to 20/11/2024",
+		usedDays: -6,
+		earnedDays: 3.0,
+		balance: 3.0,
+	},
+	{
+		date: "23/05/2024",
+		description: "Accrual for 23/05/2024 to 20/11/2024",
+		usedDays: -6,
+		earnedDays: 3.0,
+		balance: 3.0,
+	},
 	// Add more history entries as needed
 ];
 
 const Home: React.FC = () => (
-	<div className="bg-[#DAE6F2] min-h-screen">
+	<div className="bg-[#DAE6F2] bg-white min-h-screen">
 		<NavigationBar />
 		<main className="p-8">
 			<ProfileHeader title={user.name} />
