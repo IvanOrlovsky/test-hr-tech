@@ -2,6 +2,10 @@
 
 import { IoIosSearch } from "react-icons/io";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { IoSettingsOutline } from "react-icons/io5";
+import { FaRegQuestionCircle } from "react-icons/fa";
+import { IoMdNotificationsOutline } from "react-icons/io";
+
 import { useState } from "react";
 import { cn } from "@/lib/cn";
 
@@ -118,6 +122,21 @@ const NavigationBar = () => {
 						className="outline-none"
 					/>
 				</div>
+				<div className="hidden md:flex items-center">
+					<button>
+						<IoSettingsOutline size={24} />
+					</button>
+				</div>
+				<div className="hidden md:flex items-center">
+					<button>
+						<FaRegQuestionCircle size={24} />
+					</button>
+				</div>
+				<div className="hidden md:flex items-center">
+					<button>
+						<IoMdNotificationsOutline size={24} />
+					</button>
+				</div>
 				<img
 					className="w-10 h-10 rounded-full"
 					src="https://via.placeholder.com/38x38"
@@ -125,7 +144,6 @@ const NavigationBar = () => {
 				/>
 			</div>
 
-			{/* Dropdown Menu for Mobile */}
 			{isMenuOpen && (
 				<div className="absolute top-full left-0 w-full bg-white shadow-lg flex flex-col items-start z-10">
 					<a
@@ -191,7 +209,6 @@ const NavigationBar = () => {
 				</div>
 			)}
 
-			{/* Dropdown Search for Mobile */}
 			{isSearchOpen && (
 				<div className="absolute top-full left-0 w-full bg-white shadow-lg flex flex-col items-start p-4 z-10">
 					<div className="border border-black p-2 rounded-xl w-full flex flex-row gap-2">

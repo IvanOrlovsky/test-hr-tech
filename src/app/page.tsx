@@ -51,10 +51,10 @@ const Home: React.FC = () => (
 	<div className="bg-[#DAE6F2] bg-white min-h-screen">
 		<NavigationBar />
 		<main className="p-8">
-			<ProfileHeader title={user.name} />
 			<div className="flex flex-col lg:flex-row gap-8">
 				<UserProfile user={user} />
 				<div className="flex flex-col gap-16 w-full">
+					<ProfileHeader title={user.name} />
 					<TimeOffSection />
 					<UpcomingTimeOff />
 					<HistorySection history={history} />
