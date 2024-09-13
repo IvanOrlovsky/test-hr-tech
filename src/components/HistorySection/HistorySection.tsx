@@ -46,22 +46,49 @@ const HistorySection: React.FC<HistorySectionProps> = ({ history }) => {
 	);
 
 	return (
-		<section>
+		<section className="flex flex-col gap-4">
 			<div className="flex flex-row gap-2 pb-2 mb-4 border-b-2 border-black ">
 				<GrHistory className="self-center" />
 				<h2 className="text-xl font-semibold">History</h2>
 			</div>
-			<Select>
-				<SelectTrigger className="w-[180px] ">
-					<SelectValue placeholder="Theme" />
-				</SelectTrigger>
-				<SelectContent>
-					<SelectItem value="light">Light</SelectItem>
-					<SelectItem value="dark">Dark</SelectItem>
-					<SelectItem value="system">System</SelectItem>
-				</SelectContent>
-			</Select>
-			<Table>
+			<div className="flex flex-col md:flex-row w-full gap-3">
+				<div className="mt-4 md:mt-0 w-full md:w-auto">
+					<Select>
+						<SelectTrigger className="">
+							<SelectValue placeholder="Sick" />
+						</SelectTrigger>
+						<SelectContent>
+							<SelectItem value="1">1</SelectItem>
+							<SelectItem value="2">2</SelectItem>
+							<SelectItem value="3">3</SelectItem>
+						</SelectContent>
+					</Select>
+				</div>
+				<div className="flex flex-row grow justify-between ">
+					<Select>
+						<SelectTrigger className="w-fit">
+							<SelectValue placeholder="All" />
+						</SelectTrigger>
+						<SelectContent>
+							<SelectItem value="1">1</SelectItem>
+							<SelectItem value="2">2</SelectItem>
+							<SelectItem value="3">3</SelectItem>
+						</SelectContent>
+					</Select>
+
+					<Select>
+						<SelectTrigger className="w-fit">
+							<SelectValue placeholder="Balance History" />
+						</SelectTrigger>
+						<SelectContent>
+							<SelectItem value="1">1</SelectItem>
+							<SelectItem value="2">2</SelectItem>
+							<SelectItem value="3">3</SelectItem>
+						</SelectContent>
+					</Select>
+				</div>
+			</div>
+			<Table className="">
 				<TableHeader className="bg-[#DAE6F2]">
 					<TableRow>
 						{columns.map((column) => (
