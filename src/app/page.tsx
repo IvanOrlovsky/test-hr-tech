@@ -4,6 +4,7 @@ import ProfileHeader from "../components/ProfileHeader/ProfileHeader";
 import NavigationBar from "../components/NavigationBar/NavigationBar";
 import TimeOffSection from "../components/TimeOffSection/TimeOffSection";
 import HistorySection from "../components/HistorySection/HistorySection";
+import UpcomingTimeOff from "@/components/UpcomingTimeOff/UpcomingTimeOff";
 
 const user = {
 	name: "Alexandra Kuibyshevskaya",
@@ -53,8 +54,9 @@ const Home: React.FC = () => (
 			<ProfileHeader title={user.name} />
 			<div className="flex flex-col lg:flex-row gap-8">
 				<UserProfile user={user} />
-				<div className="flex-1">
+				<div className="flex flex-col gap-16 w-full">
 					<TimeOffSection />
+					<UpcomingTimeOff />
 					<HistorySection history={history} />
 				</div>
 			</div>
