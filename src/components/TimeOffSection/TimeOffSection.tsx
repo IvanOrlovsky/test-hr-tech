@@ -33,7 +33,7 @@ const TimeOffSection = () => {
 	];
 
 	return (
-		<section className="px-4 py-2">
+		<section>
 			<div className="flex flex-row gap-2 pb-2 mb-4 border-b-2 border-black">
 				<GrDocumentTime className="self-center" />
 				<h2 className="text-xl font-semibold">Time Off</h2>
