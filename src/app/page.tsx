@@ -48,16 +48,18 @@ const history = [
 ];
 
 const Home: React.FC = () => (
-	<div className="bg-[#DAE6F2] bg-white min-h-screen">
+	<div className="bg-[#DAE6F2]  min-h-screen">
 		<NavigationBar />
 		<main className="p-8">
 			<div className="flex flex-col lg:flex-row gap-8">
 				<UserProfile user={user} />
-				<div className="flex flex-col gap-16 w-full">
+				<div className="flex flex-col gap-12 w-full">
 					<ProfileHeader title={user.name} />
-					<TimeOffSection />
-					<UpcomingTimeOff />
-					<HistorySection history={history} />
+					<div className="flex flex-col gap-16 w-full bg-white p-8 ">
+						<TimeOffSection />
+						<UpcomingTimeOff />
+						<HistorySection history={history} />
+					</div>
 				</div>
 			</div>
 		</main>
